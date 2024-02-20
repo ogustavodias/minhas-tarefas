@@ -7,6 +7,7 @@ import colors from '../../../styles/configs/colors'
 export const Card = styled.li`
   padding: 8px;
   border-radius: 8px;
+  cursor: pointer;
 
   background-color: ${colors.whiteLight};
   border: 1px solid ${colors.grayLight};
