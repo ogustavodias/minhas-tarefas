@@ -10,4 +10,5 @@ export const Wrapper = styled.label`
   color: ${colors.black};
   font-size: 18px;
   font-weight: 700;
+  cursor: pointer;
 `
