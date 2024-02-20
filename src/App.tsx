@@ -2,14 +2,16 @@
 import React from 'react'
 
 // Interns
-import Container from './styles/App'
+import * as S from './styles/App'
 import Filterbar from './components/Filterbar'
+import Tasks from './components/Tasks'
 
 function App() {
   return (
-    <Container>
+    <S.Container>
       <Filterbar />
-    </Container>
+      <Tasks />
+    </S.Container>
   )
 }
 
