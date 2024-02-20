@@ -8,6 +8,8 @@ export const Wrapper = styled.main`
   padding: 40px;
   color: ${colors.black};
   font-weight: 700;
+  max-height: 100vh;
+  overflow-y: auto;
 `
 
 export const Header = styled.header`
