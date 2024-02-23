@@ -1,5 +1,5 @@
 // External
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 // Internal
 import * as S from './styles'
@@ -11,6 +11,8 @@ export type Props = {
 }
 
 const Card = ({ title }: Props) => {
+  const [inEditing, setInEditing] = useState(false)
+
   return (
     <S.Wrapper>
       <Title title={title} />
@@ -20,8 +22,17 @@ const Card = ({ title }: Props) => {
       </S.Posters>
       <S.Description value={'Tarefa teste'} />
       <S.ActionBar>
-        <Button role="edit" />
-        <Button role="remove" />
+        {inEditing ? (
+          <>
+            <Button role="save" />
+            <Button role="cancel" setInEditing={() => setInEditing(false)} />
+          </>
+        ) : (
+          <>
+            <Button role="edit" setInEditing={() => setInEditing(true)} />
+            <Button role="remove" />
+          </>
+        )}
       </S.ActionBar>
     </S.Wrapper>
   )
