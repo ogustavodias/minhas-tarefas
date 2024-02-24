@@ -1,5 +1,5 @@
 // External
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 // Internal
 import * as S from './styles'
@@ -10,13 +10,14 @@ export type Props = {
   title: string
 }
 
-export type Poster = {
-  type: 'priority' | 'status'
-  children: React.ReactNode
-}
-
 const Card = ({ title }: Props) => {
   const [inEditing, setInEditing] = useState(false)
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null)
+
+  // Efeito para focar o textarea quando inEditing === true
+  useEffect(() => {
+    if (inEditing && textareaRef.current) textareaRef.current.focus()
+  }, [inEditing])
 
   return (
     <S.Wrapper>
@@ -25,7 +26,12 @@ const Card = ({ title }: Props) => {
         <S.Poster type="priority">importante</S.Poster>
         <S.Poster type="status">concluído</S.Poster>
       </S.Posters>
-      <S.Description value={'Tarefa teste'} />
+      <S.Description
+        value={'Tarefa teste'}
+        disabled={!inEditing}
+        ref={textareaRef}
+        editing={`${inEditing}`}
+      />
       <S.ActionBar>
         {inEditing ? (
           <>
