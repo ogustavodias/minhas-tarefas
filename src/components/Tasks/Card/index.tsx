@@ -10,6 +10,11 @@ export type Props = {
   title: string
 }
 
+export type Poster = {
+  type: 'priority' | 'status'
+  children: React.ReactNode
+}
+
 const Card = ({ title }: Props) => {
   const [inEditing, setInEditing] = useState(false)
 
@@ -17,8 +22,8 @@ const Card = ({ title }: Props) => {
     <S.Wrapper>
       <Title title={title} />
       <S.Posters>
-        <S.Poster>importante</S.Poster>
-        <S.Poster>urgente</S.Poster>
+        <S.Poster type="priority">importante</S.Poster>
+        <S.Poster type="status">concluído</S.Poster>
       </S.Posters>
       <S.Description value={'Tarefa teste'} />
       <S.ActionBar>

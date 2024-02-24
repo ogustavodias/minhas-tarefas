@@ -4,6 +4,26 @@ import styled from 'styled-components'
 // Internal
 import colors from '../../../styles/configs/colors'
 import fonts from '../../../styles/configs/fonts'
+import { Poster as PosterProps } from './index'
+
+function getPosterColor(props: PosterProps): string {
+  const { children } = props
+
+  console.log(props.children)
+
+  const color =
+    children === 'concluído'
+      ? colors.green
+      : children === 'pendente'
+      ? colors.yellow
+      : children === 'importante'
+      ? colors.orange
+      : children === 'urgente'
+      ? colors.red
+      : colors.gray
+
+  return color
+}
 
 export const Wrapper = styled.li`
   padding: 16px;
@@ -39,9 +59,9 @@ export const Posters = styled.ul`
   gap: 16px;
   margin: 18px 0;
 `
-export const Poster = styled.li`
+export const Poster = styled.li<PosterProps>`
   padding: 4px 8px;
-  background-color: ${colors.orange};
+  background-color: ${(props) => getPosterColor(props)};
   border-radius: 8px;
   font-size: 10px;
   font-weight: 700;
