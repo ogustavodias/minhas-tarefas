@@ -1,5 +1,5 @@
 // External
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 // Internal
 import colors from '../../../styles/configs/colors'
