@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 // Internal
 import * as S from './styles'
 import Title from './Title'
-import Button from '../../Button'
+import Button from '../Button'
 
 export type Props = {
   title: string

@@ -1,18 +1,17 @@
 // External
-import React, { MouseEventHandler } from 'react'
+import React, { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 
 // Internal
 import * as S from './styles'
 
 type ButtonClickHandler = MouseEventHandler<HTMLButtonElement>
 
-export type Props = {
+export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   role: 'save' | 'add' | 'remove' | 'cancel' | 'edit'
   setInEditing?: ButtonClickHandler
 }
 
 const Button = ({ role, setInEditing }: Props) => {
-  const handleClick = setInEditing
   const label =
     role === 'save'
       ? 'Salvar'
@@ -24,7 +23,7 @@ const Button = ({ role, setInEditing }: Props) => {
       ? 'Remover'
       : 'Cancelar'
   return (
-    <S.Button type="button" role={role} onClick={handleClick}>
+    <S.Button type="button" role={role} onClick={setInEditing}>
       {label}
     </S.Button>
   )

@@ -5,13 +5,15 @@ import styled from 'styled-components'
 import colors from '../../styles/configs/colors'
 import fonts from '../../styles/configs/fonts'
 
-export const Field = styled.input`
+export const Field = styled.textarea`
   width: 100%;
+  height: 200px;
   padding: 8px;
   border: 1px solid ${colors.blackGray};
   border-radius: 8px;
   outline: none;
   font-family: ${fonts.roboto};
+  resize: none;
 
   &::placeholder {
     color: ${colors.blackGray};

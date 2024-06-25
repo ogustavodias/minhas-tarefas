@@ -2,8 +2,8 @@
 import styled from 'styled-components'
 
 // Internal
-import colors from '../../../styles/configs/colors'
-import fonts from '../../../styles/configs/fonts'
+import colors from '../../styles/configs/colors'
+import fonts from '../../styles/configs/fonts'
 
 function getPosterColor(props: PosterProps): string {
   const { children } = props

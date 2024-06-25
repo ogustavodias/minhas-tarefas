@@ -6,7 +6,7 @@ import colors from '../../styles/configs/colors'
 import { Props } from './index'
 
 function checkRoleColor(props: Props): string {
-  const role = props.role
+  const { role } = props
   const color =
     role === 'save' || role === 'add'
       ? colors.green

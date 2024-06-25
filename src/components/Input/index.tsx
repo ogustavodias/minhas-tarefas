@@ -1,12 +1,8 @@
-import React from 'react'
+import React, { InputHTMLAttributes } from 'react'
 import * as S from './styles'
 
-type Props = {
-  placeholder: string
-}
-
-const Input = ({ placeholder }: Props) => {
-  return <S.Field placeholder={placeholder} />
+const Input = (props: InputHTMLAttributes<HTMLInputElement>) => {
+  return <S.Field {...props} type="text" />
 }
 
 export default Input
