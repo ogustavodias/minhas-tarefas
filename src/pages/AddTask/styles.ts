@@ -6,7 +6,7 @@ import fonts from '../../styles/configs/fonts'
 export const AddTask = styled.form`
   max-width: 600px;
 
-  *:not(:last-child) {
+  > *:not(:last-child) {
     margin-bottom: 20px;
   }
 `
