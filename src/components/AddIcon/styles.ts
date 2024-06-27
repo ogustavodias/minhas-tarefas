@@ -5,7 +5,10 @@ import styled from 'styled-components'
 import fonts from '../../styles/configs/fonts'
 import colors from '../../styles/configs/colors'
 
-export const AddButton = styled.button`
+export const AddIcon = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   bottom: 40px;
   right: 40px;

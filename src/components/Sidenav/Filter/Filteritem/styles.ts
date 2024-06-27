@@ -2,7 +2,7 @@
 import styled from 'styled-components'
 
 // Internal
-import colors from '../../../styles/configs/colors'
+import colors from '../../../../styles/configs/colors'
 
 export const Card = styled.li`
   padding: 8px;

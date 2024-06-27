@@ -3,23 +3,31 @@ import React from 'react'
 
 // Interns
 import * as S from './styles/App'
-import Filterbar from './components/Filterbar'
+import Sidenav from './components/Sidenav'
 import Tasks from './pages/Tasks'
-import AddButton from './components/AddButton'
+import AddIcon from './components/AddIcon'
 import Header from './components/Header'
 import AddTask from './pages/AddTask'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import useRouter from './hooks/useRouter'
 
 function App() {
+  const routes = useRouter()
+
   return (
-    <S.Container>
-      <Filterbar />
-      <S.Content>
-        <Header />
-        {/* <Tasks /> */}
-        <AddTask />
-      </S.Content>
-      <AddButton />
-    </S.Container>
+    <BrowserRouter>
+      <S.Container>
+        <Sidenav />
+        <S.Content>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Tasks />} />
+            <Route path="/adicionar" element={<AddTask />} />
+          </Routes>
+        </S.Content>
+        <AddIcon />
+      </S.Container>
+    </BrowserRouter>
   )
 }
 

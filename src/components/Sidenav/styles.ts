@@ -9,9 +9,12 @@ export const Wrapper = styled.aside`
   background-color: ${colors.whiteGray};
   padding: 16px;
 `
-export const List = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 16px;
+export const Back = styled.a`
+  background-color: ${colors.darkBlue};
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: ${colors.white};
+  cursor: pointer;
 `

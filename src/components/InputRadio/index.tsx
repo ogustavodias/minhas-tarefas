@@ -15,7 +15,7 @@ const InputRadio = (props: Props) => {
         {props.options.map((item) => {
           return (
             <div key={item}>
-              <input type="radio" id={item} name={props.legend} />
+              <input type="radio" id={item} name={props.legend} value={item} />
               <label htmlFor={item}>{item}</label>
             </div>
           )

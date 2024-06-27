@@ -3,12 +3,12 @@ import React from 'react'
 
 // Interns
 import * as S from './styles'
-import Input from '../Input'
+import Input from '../../Input'
 import Filteritem from './Filteritem'
 
-const Filterbar = () => {
+const Filter = () => {
   return (
-    <S.Wrapper>
+    <>
       <Input placeholder="Procurar" />
       <S.List>
         <Filteritem count={2} label="pendentes" />
@@ -18,8 +18,8 @@ const Filterbar = () => {
         <Filteritem count={2} label="normal" />
         <Filteritem count={12} label="todas" />
       </S.List>
-    </S.Wrapper>
+    </>
   )
 }
 
-export default Filterbar
+export default Filter
