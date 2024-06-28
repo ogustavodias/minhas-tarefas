@@ -1,5 +1,6 @@
 // Externs
 import React from 'react'
+import { Provider } from 'react-redux'
 
 // Interns
 import * as S from './styles/App'
@@ -9,24 +10,24 @@ import AddIcon from './components/AddIcon'
 import Header from './components/Header'
 import AddTask from './pages/AddTask'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import useRouter from './hooks/useRouter'
+import store from './redux/configureStore'
 
 function App() {
-  const routes = useRouter()
-
   return (
     <BrowserRouter>
-      <S.Container>
-        <Sidenav />
-        <S.Content>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Tasks />} />
-            <Route path="/adicionar" element={<AddTask />} />
-          </Routes>
-        </S.Content>
-        <AddIcon />
-      </S.Container>
+      <Provider store={store}>
+        <S.Container>
+          <Sidenav />
+          <S.Content>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Tasks />} />
+              <Route path="/adicionar" element={<AddTask />} />
+            </Routes>
+          </S.Content>
+          <AddIcon />
+        </S.Container>
+      </Provider>
     </BrowserRouter>
   )
 }

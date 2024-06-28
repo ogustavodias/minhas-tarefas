@@ -8,7 +8,6 @@ import { useLocation } from 'react-router-dom'
 
 const Sidenav = () => {
   const { pathname } = useLocation()
-  console.log(pathname)
 
   return (
     <S.Wrapper>
