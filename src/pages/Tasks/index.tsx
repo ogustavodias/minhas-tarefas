@@ -13,7 +13,14 @@ const Tasks = () => {
   return (
     <S.Tasks>
       {tasks.map((item) => (
-        <Card key={item.id} title={item.title} />
+        <Card
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          priority={item.priority}
+          status={item.status}
+          description={item.description}
+        />
       ))}
     </S.Tasks>
   )

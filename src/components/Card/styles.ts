@@ -29,6 +29,15 @@ export const Wrapper = styled.li`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 
+export const Title = styled.label`
+  display: flex;
+  gap: 8px;
+  color: ${colors.black};
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+`
+
 type DescriptionProps = {
   editing: string
 }

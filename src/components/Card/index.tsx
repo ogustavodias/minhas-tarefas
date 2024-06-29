@@ -1,33 +1,45 @@
-// External
-import React, { useEffect, useRef, useState } from 'react'
+// React
+import React from 'react'
 
-// Internal
+// Styles
 import * as S from './styles'
-import Title from './Title'
+
+// Components
 import Button from '../Button'
 
-export type Props = {
-  title: string
-}
+// Models
+import { ITask, remove } from '../../redux/reducers/tasks'
 
-const Card = ({ title }: Props) => {
-  const [inEditing, setInEditing] = useState(false)
-  const textareaRef = useRef<HTMLTextAreaElement | null>(null)
+// Redux
+import { useDispatch } from 'react-redux'
+
+const Card = ({ id, title, priority, status, description }: ITask) => {
+  const [inEditing, setInEditing] = React.useState(false)
+  const textareaRef = React.useRef<HTMLTextAreaElement | null>(null)
+
+  const dispatch = useDispatch()
+
+  function removeTask() {
+    dispatch(remove(id))
+  }
 
   // Efeito para focar o textarea quando inEditing === true
-  useEffect(() => {
+  React.useEffect(() => {
     if (inEditing && textareaRef.current) textareaRef.current.focus()
   }, [inEditing])
 
   return (
     <S.Wrapper>
-      <Title title={title} />
+      <S.Title htmlFor={title}>
+        <input type="checkbox" id={title} checked={status === 'concluído'} />
+        {title}
+      </S.Title>
       <S.Posters>
-        <S.Poster type="priority">importante</S.Poster>
-        <S.Poster type="status">concluído</S.Poster>
+        <S.Poster type="priority">{priority}</S.Poster>
+        <S.Poster type="status">{status}</S.Poster>
       </S.Posters>
       <S.Description
-        value={'Tarefa teste'}
+        value={description}
         disabled={!inEditing}
         ref={textareaRef}
         editing={`${inEditing}`}
@@ -41,7 +53,7 @@ const Card = ({ title }: Props) => {
         ) : (
           <>
             <Button role="edit" setInEditing={() => setInEditing(true)} />
-            <Button role="remove" />
+            <Button role="remove" onClick={removeTask} />
           </>
         )}
       </S.ActionBar>

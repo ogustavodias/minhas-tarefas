@@ -1,12 +1,20 @@
-import React, { FormEvent, FormEventHandler } from 'react'
-import Input from '../../components/Input'
+// React
+import React, { FormEvent } from 'react'
 
+// Styles
 import * as S from './styles'
+
+// Components
+import Input from '../../components/Input'
 import TextArea from '../../components/TextArea'
 import Button from '../../components/Button'
 import InputRadio from '../../components/InputRadio'
-import { useDispatch } from 'react-redux'
-import { Task, add } from '../../redux/reducers/tasks'
+
+// Redux
+import { useDispatch, useSelector } from 'react-redux'
+
+// Models
+import { ITask, add, selectCurrentId } from '../../redux/reducers/tasks'
 
 const Register = () => {
   const [title, setTitle] = React.useState('')
@@ -14,16 +22,17 @@ const Register = () => {
   const [description, setDescription] = React.useState('')
 
   const dispatch = useDispatch()
+  const currentId = useSelector(selectCurrentId)
 
   function addTask(e: FormEvent) {
     e.preventDefault()
     const task = {
-      id: '0',
+      id: currentId,
       title,
       priority,
       status: 'pendente',
       description
-    } as Task
+    } as ITask
 
     dispatch(add(task))
   }

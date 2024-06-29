@@ -1,44 +1,46 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { getLocalStorage } from '../middlewares/localStorage'
+import { RootState } from '../configureStore'
 
-export interface Task {
-  id: string
+export type Priority = 'normal' | 'importante' | 'urgente'
+export type Status = 'pendente' | 'concluído'
+
+export interface ITask {
+  id: number
   title: string
-  priority: 'normal' | 'importante' | 'urgente'
-  status: 'pendente' | 'concluído'
+  priority: Priority
+  status: Status
   description: string
 }
 
-interface RootState {
-  tasks: Task[]
+export interface Initial {
+  list: ITask[]
+  currentId: number
 }
 
-const initialState: Task[] = [
-  {
-    id: '1',
-    title: 'Estudar mais',
-    priority: 'importante',
-    status: 'pendente',
-    description:
-      'Estudar mais para conseguir minha primeira vaga como desenvolvedor.'
-  }
-]
+const initialState: Initial = {
+  list: getLocalStorage('list') || [],
+  currentId: Number(getLocalStorage('currentId')) || 0
+}
 
 const slice = createSlice({
   name: 'tasks',
   initialState,
   reducers: {
-    add(state, action: PayloadAction<Task>) {
-      state.push(action.payload)
+    add(state, action: PayloadAction<ITask>) {
+      state.list.push(action.payload)
+      state.currentId++
     },
 
-    remove(state, action: PayloadAction<string>) {
-      const newState = state.filter((item) => item.id !== action.payload)
-      state = [...newState]
+    remove(state, action: PayloadAction<number>) {
+      const newState = state.list.filter((item) => item.id !== action.payload)
+      state.list = [...newState]
     }
   }
 })
 
-export const selectAllTasks = (state: RootState) => state.tasks
+export const selectAllTasks = ({ tasks }: RootState) => tasks.list
+export const selectCurrentId = ({ tasks }: RootState) => tasks.currentId
 
 export const { add, remove } = slice.actions
 
