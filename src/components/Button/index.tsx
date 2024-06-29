@@ -11,7 +11,7 @@ export type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
   setInEditing?: ButtonClickHandler
 }
 
-const Button = ({ role, setInEditing }: Props) => {
+const Button = ({ role, setInEditing, ...props }: Props) => {
   const label =
     role === 'save'
       ? 'Salvar'
@@ -23,7 +23,7 @@ const Button = ({ role, setInEditing }: Props) => {
       ? 'Remover'
       : 'Cancelar'
   return (
-    <S.Button type="button" role={role} onClick={setInEditing}>
+    <S.Button type="button" role={role} onClick={setInEditing} {...props}>
       {label}
     </S.Button>
   )

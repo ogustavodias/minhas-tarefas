@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import colors from '../../styles/configs/colors'
 import fonts from '../../styles/configs/fonts'
 
-export const AddTask = styled.form`
+export const Wrapper = styled.form`
   max-width: 600px;
 
   > *:not(:last-child) {

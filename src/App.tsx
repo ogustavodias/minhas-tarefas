@@ -8,7 +8,7 @@ import Sidenav from './components/Sidenav'
 import Tasks from './pages/Tasks'
 import AddIcon from './components/AddIcon'
 import Header from './components/Header'
-import AddTask from './pages/AddTask'
+import AddTask from './pages/Register'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import store from './redux/configureStore'
 

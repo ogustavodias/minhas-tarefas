@@ -40,4 +40,6 @@ const slice = createSlice({
 
 export const selectAllTasks = (state: RootState) => state.tasks
 
+export const { add, remove } = slice.actions
+
 export default slice.reducer

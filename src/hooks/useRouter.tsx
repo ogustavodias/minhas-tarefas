@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 // Pages
 import Tasks from '../pages/Tasks'
-import AddTask from '../pages/AddTask'
+import AddTask from '../pages/Register'
 
 const useRouter = () => {
   const routes = createBrowserRouter([
