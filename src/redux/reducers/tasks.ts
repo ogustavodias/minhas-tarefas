@@ -35,6 +35,15 @@ const slice = createSlice({
     remove(state, action: PayloadAction<number>) {
       const newState = state.list.filter((item) => item.id !== action.payload)
       state.list = [...newState]
+    },
+
+    edit(state, action: PayloadAction<ITask>) {
+      const newState = state.list.map((item) => {
+        if (item.id === action.payload.id) return action.payload
+        // Else
+        return item
+      })
+      state.list = [...newState]
     }
   }
 })
@@ -42,6 +51,6 @@ const slice = createSlice({
 export const selectAllTasks = ({ tasks }: RootState) => tasks.list
 export const selectCurrentId = ({ tasks }: RootState) => tasks.currentId
 
-export const { add, remove } = slice.actions
+export const { add, remove, edit } = slice.actions
 
 export default slice.reducer

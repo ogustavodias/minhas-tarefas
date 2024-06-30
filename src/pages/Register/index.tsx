@@ -15,6 +15,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 // Models
 import { ITask, add, selectCurrentId } from '../../redux/reducers/tasks'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
   const [title, setTitle] = React.useState('')
@@ -23,6 +24,7 @@ const Register = () => {
 
   const dispatch = useDispatch()
   const currentId = useSelector(selectCurrentId)
+  const navigate = useNavigate()
 
   function addTask(e: FormEvent) {
     e.preventDefault()
@@ -35,6 +37,7 @@ const Register = () => {
     } as ITask
 
     dispatch(add(task))
+    navigate('/')
   }
 
   return (
