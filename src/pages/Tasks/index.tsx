@@ -5,14 +5,10 @@ import React from 'react'
 import * as S from './styles'
 import Card from '../../components/Card'
 import { useSelector } from 'react-redux'
-import {
-  selectCurrentFilters,
-  selectTasksBySearch
-} from '../../redux/reducers/tasks'
+import { selectTasksBySearchAndMarker } from '../../redux/reducers/tasks'
 
 const Tasks = () => {
-  const { marker } = useSelector(selectCurrentFilters)
-  const tasks = useSelector(selectTasksBySearch)
+  const tasks = useSelector(selectTasksBySearchAndMarker)
 
   return (
     <S.Tasks>

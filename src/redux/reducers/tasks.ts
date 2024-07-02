@@ -17,7 +17,7 @@ export interface ITask {
 
 export interface IFilters {
   search: string
-  marker: FilterType
+  marker: { key: 'status' | 'priority'; value: FilterType }
 }
 
 export interface Initial {
@@ -29,7 +29,7 @@ export interface Initial {
 const initialState: Initial = {
   list: getLocalStorage('list') || [],
   currentId: Number(getLocalStorage('currentId')) || 0,
-  filters: { search: '', marker: 'todas' }
+  filters: { search: '', marker: { key: 'status', value: 'todas' } }
 }
 
 const slice = createSlice({
@@ -61,6 +61,19 @@ const slice = createSlice({
     }
   }
 })
+
+export const selectTasksBySearchAndMarker = ({ tasks }: RootState) =>
+  tasks.list
+    .filter((item) =>
+      tasks.filters.search !== ''
+        ? item.title.includes(tasks.filters.search)
+        : item
+    )
+    .filter((item) => {
+      if (tasks.filters.marker.value === 'todas') return item
+
+      return item[tasks.filters.marker.key] === tasks.filters.marker.value
+    })
 
 export const selectTasksBySearch = ({ tasks }: RootState) =>
   tasks.list.filter((item) =>

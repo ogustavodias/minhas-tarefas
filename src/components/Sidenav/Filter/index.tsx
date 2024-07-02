@@ -8,14 +8,13 @@ import Filteritem from './Filteritem'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   filtrate,
-  FilterType,
   selectCurrentFilters,
   selectTasksBySearch
 } from '../../../redux/reducers/tasks'
 
 const Filter = () => {
   const { marker } = useSelector(selectCurrentFilters)
-  const [activeMarker, setActiveMarker] = React.useState<FilterType>(marker)
+  const [activeMarker, setActiveMarker] = React.useState(marker)
   const [activeSearch, setActiveSearch] = React.useState('')
 
   const all = useSelector(selectTasksBySearch)
@@ -41,38 +40,40 @@ const Filter = () => {
         <Filteritem
           count={pending.length}
           label="pendentes"
-          active={activeMarker === 'pendente'}
-          onClick={() => setActiveMarker('pendente')}
+          active={activeMarker.value === 'pendente'}
+          onClick={() => setActiveMarker({ key: 'status', value: 'pendente' })}
         />
         <Filteritem
           count={completed.length}
           label="concluídas"
-          active={activeMarker === 'concluído'}
-          onClick={() => setActiveMarker('concluído')}
+          active={activeMarker.value === 'concluído'}
+          onClick={() => setActiveMarker({ key: 'status', value: 'concluído' })}
         />
         <Filteritem
-          count={normal.length}
+          count={urgent.length}
           label="urgentes"
-          active={activeMarker === 'urgente'}
-          onClick={() => setActiveMarker('urgente')}
+          active={activeMarker.value === 'urgente'}
+          onClick={() => setActiveMarker({ key: 'priority', value: 'urgente' })}
         />
         <Filteritem
           count={important.length}
           label="importantes"
-          active={activeMarker === 'importante'}
-          onClick={() => setActiveMarker('importante')}
+          active={activeMarker.value === 'importante'}
+          onClick={() =>
+            setActiveMarker({ key: 'priority', value: 'importante' })
+          }
         />
         <Filteritem
-          count={urgent.length}
+          count={normal.length}
           label="normal"
-          active={activeMarker === 'normal'}
-          onClick={() => setActiveMarker('normal')}
+          active={activeMarker.value === 'normal'}
+          onClick={() => setActiveMarker({ key: 'priority', value: 'normal' })}
         />
         <Filteritem
           count={all.length}
           label="todas"
-          active={activeMarker === 'todas'}
-          onClick={() => setActiveMarker('todas')}
+          active={activeMarker.value === 'todas'}
+          onClick={() => setActiveMarker({ key: 'status', value: 'todas' })}
         />
       </S.List>
     </>
