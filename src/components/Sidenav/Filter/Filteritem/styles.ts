@@ -1,8 +1,18 @@
 // External
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 // Internal
 import colors from '../../../../styles/configs/colors'
+
+const pulseClick = keyframes`
+  from {
+    transform: scale(.9)
+  }
+  
+  to {
+    transform: initial
+  }
+`
 
 export const Card = styled.li`
   padding: 8px;
@@ -15,6 +25,7 @@ export const Card = styled.li`
   &.active {
     border: 1px solid ${colors.blue};
     color: ${colors.blue};
+    animation: ${pulseClick} 0.3s ease forwards;
   }
 `
 export const Counter = styled.span`

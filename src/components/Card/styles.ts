@@ -1,5 +1,5 @@
 // External
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 // Internal
 import colors from '../../styles/configs/colors'
@@ -22,11 +22,22 @@ function getPosterColor(props: PosterProps): string {
   return color
 }
 
+const toRight = keyframes`
+  from {
+    transform: translateX(-100px)
+  }
+
+  to {
+    transform: initial
+  }
+`
+
 export const Wrapper = styled.li`
   padding: 16px;
   background-color: ${colors.whiteLight};
   border-radius: 16px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  animation: ${toRight} 0.3s ease forwards;
 `
 
 export const Title = styled.label`
