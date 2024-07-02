@@ -33,6 +33,7 @@ const Card = (task: ITask) => {
   }
 
   function save() {
+    if (!description) return alert('Preencha a descrição da tarefa.')
     const newTask: ITask = { ...task, description, status }
     dispatch(edit(newTask))
     if (inEditing) setInEditing(false)
