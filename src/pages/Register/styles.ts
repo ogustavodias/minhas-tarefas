@@ -25,3 +25,10 @@ export const TextArea = styled.textarea`
     font-weight: 700;
   }
 `
+export const Error = styled.p`
+  background-color: ${colors.red};
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: ${colors.whiteLight};
+`

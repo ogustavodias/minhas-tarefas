@@ -21,6 +21,7 @@ const Register = () => {
   const [title, setTitle] = React.useState('')
   const [priority, setPriority] = React.useState('normal')
   const [description, setDescription] = React.useState('')
+  const [error, setError] = React.useState(false)
 
   const dispatch = useDispatch()
   const currentId = useSelector(selectCurrentId)
@@ -28,6 +29,10 @@ const Register = () => {
 
   function addTask(e: FormEvent) {
     e.preventDefault()
+
+    if (!title || !description) return setError(true)
+
+    // else
     const task = {
       id: currentId,
       title,
@@ -36,6 +41,7 @@ const Register = () => {
       description
     } as ITask
 
+    setError(false)
     dispatch(add(task))
     navigate('/')
   }
@@ -59,6 +65,7 @@ const Register = () => {
         setPriority={setPriority}
       />
       <Button role="add" type="submit" />
+      {error ? <S.Error> Preencha todos os campos </S.Error> : ''}
     </S.Wrapper>
   )
 }
