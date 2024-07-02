@@ -5,6 +5,8 @@ import { RootState } from '../configureStore'
 export type Priority = 'normal' | 'importante' | 'urgente'
 export type Status = 'pendente' | 'concluído'
 
+export type FilterType = Priority | Status | 'todas'
+
 export interface ITask {
   id: number
   title: string
@@ -13,14 +15,21 @@ export interface ITask {
   description: string
 }
 
+export interface IFilters {
+  search: string
+  marker: FilterType
+}
+
 export interface Initial {
   list: ITask[]
   currentId: number
+  filters: IFilters
 }
 
 const initialState: Initial = {
   list: getLocalStorage('list') || [],
-  currentId: Number(getLocalStorage('currentId')) || 0
+  currentId: Number(getLocalStorage('currentId')) || 0,
+  filters: { search: '', marker: 'todas' }
 }
 
 const slice = createSlice({
@@ -44,13 +53,26 @@ const slice = createSlice({
         return item
       })
       state.list = [...newState]
+    },
+
+    filtrate(state, action: PayloadAction<IFilters>) {
+      state.filters.marker = action.payload.marker
+      state.filters.search = action.payload.search
     }
   }
 })
 
-export const selectAllTasks = ({ tasks }: RootState) => tasks.list
+export const selectTasksBySearch = ({ tasks }: RootState) =>
+  tasks.list.filter((item) =>
+    tasks.filters.search !== ''
+      ? item.title.includes(tasks.filters.search)
+      : item
+  )
+
 export const selectCurrentId = ({ tasks }: RootState) => tasks.currentId
 
-export const { add, remove, edit } = slice.actions
+export const selectCurrentFilters = ({ tasks }: RootState) => tasks.filters
+
+export const { add, remove, edit, filtrate } = slice.actions
 
 export default slice.reducer
