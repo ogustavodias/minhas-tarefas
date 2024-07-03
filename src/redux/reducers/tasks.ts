@@ -66,7 +66,7 @@ export const selectTasksBySearchAndMarker = ({ tasks }: RootState) =>
   tasks.list
     .filter((item) =>
       tasks.filters.search !== ''
-        ? item.title.toUpperCase().includes(tasks.filters.search.toUpperCase())
+        ? item.title.toLowerCase().includes(tasks.filters.search.toLowerCase())
         : item
     )
     .filter((item) => {
@@ -78,7 +78,7 @@ export const selectTasksBySearchAndMarker = ({ tasks }: RootState) =>
 export const selectTasksBySearch = ({ tasks }: RootState) =>
   tasks.list.filter((item) =>
     tasks.filters.search !== ''
-      ? item.title.includes(tasks.filters.search)
+      ? item.title.toLowerCase().includes(tasks.filters.search.toLowerCase())
       : item
   )
 
