@@ -1,4 +1,7 @@
-import React, { InputHTMLAttributes } from 'react'
+// Typescript
+import { InputHTMLAttributes } from 'react'
+
+// Styles
 import * as S from './styles'
 
 const Input = (props: InputHTMLAttributes<HTMLInputElement>) => {

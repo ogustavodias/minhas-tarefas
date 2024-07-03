@@ -1,7 +1,7 @@
-// External
+// React
 import React from 'react'
 
-// Internal
+// Styles
 import * as S from './styles'
 
 type Props = React.HTMLAttributes<HTMLLIElement> & {

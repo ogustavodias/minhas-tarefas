@@ -1,9 +1,10 @@
-// External
-import React from 'react'
-
-// Internal
+// Styles
 import * as S from './styles'
+
+// Components
 import Card from '../../components/Card'
+
+// Redux
 import { useSelector } from 'react-redux'
 import { selectTasksBySearchAndMarker } from '../../redux/reducers/tasks'
 

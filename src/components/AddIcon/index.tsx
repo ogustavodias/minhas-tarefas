@@ -1,6 +1,4 @@
-import React from 'react'
-
-// Internal
+// Styles
 import * as S from './styles'
 
 const AddIcon = () => {

@@ -1,5 +1,7 @@
+// Styled-components
 import styled from 'styled-components'
 
+// Styles global configs
 import fonts from '../../styles/configs/fonts'
 
 export const Wrapper = styled.div`

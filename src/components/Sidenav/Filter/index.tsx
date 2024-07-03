@@ -1,10 +1,14 @@
-// Externs
+// React
 import React, { useEffect } from 'react'
 
-// Interns
+// Styles
 import * as S from './styles'
+
+// Components
 import Input from '../../Input'
 import Filteritem from './Filteritem'
+
+// Redux
 import { useDispatch, useSelector } from 'react-redux'
 import {
   filtrate,

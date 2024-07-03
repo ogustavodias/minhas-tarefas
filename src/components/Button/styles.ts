@@ -1,8 +1,10 @@
-// External
+// Styled-components
 import styled from 'styled-components'
 
-// Internal
+// Styles global configs
 import colors from '../../styles/configs/colors'
+
+// Typescript
 import { Props } from './index'
 
 function checkRoleColor(props: Props): string {

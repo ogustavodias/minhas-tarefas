@@ -1,9 +1,10 @@
-// Externs
-import React from 'react'
-
-// Interns
+// Styles
 import * as S from './styles'
+
+// Components
 import Filter from './Filter'
+
+// React router dom
 import { useLocation } from 'react-router-dom'
 
 const Sidenav = () => {

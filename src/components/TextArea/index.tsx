@@ -1,4 +1,7 @@
-import React, { TextareaHTMLAttributes } from 'react'
+// Typescript
+import { TextareaHTMLAttributes } from 'react'
+
+// Styles
 import * as S from './styles'
 
 const TextArea = (props: TextareaHTMLAttributes<HTMLTextAreaElement>) => {

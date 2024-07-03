@@ -1,11 +1,14 @@
-import React from 'react'
-
+// Styles
 import * as S from './styles'
+
+// Redux
 import { useSelector } from 'react-redux'
 import {
   selectCurrentFilters,
   selectTasksBySearchAndMarker
 } from '../../redux/reducers/tasks'
+
+// React router dom
 import { useLocation } from 'react-router-dom'
 
 const Header = () => {

@@ -1,7 +1,7 @@
-// Externs
+// Styled-components
 import styled from 'styled-components'
 
-// Interns
+// Styles global configs
 import colors from '../../styles/configs/colors'
 
 export const Wrapper = styled.aside`

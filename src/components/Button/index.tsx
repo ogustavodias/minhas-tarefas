@@ -1,7 +1,7 @@
-// External
-import React, { ButtonHTMLAttributes, MouseEventHandler } from 'react'
+// Typescript
+import { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 
-// Internal
+// Styles
 import * as S from './styles'
 
 type ButtonClickHandler = MouseEventHandler<HTMLButtonElement>

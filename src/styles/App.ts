@@ -1,4 +1,7 @@
+// Styled-components
 import styled from 'styled-components'
+
+// Styles global configs
 import fonts from './configs/fonts'
 
 export const Container = styled.div`

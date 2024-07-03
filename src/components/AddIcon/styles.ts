@@ -1,7 +1,7 @@
-// External
+// Styled-components
 import styled from 'styled-components'
 
-// Internal
+// Style global configs
 import fonts from '../../styles/configs/fonts'
 import colors from '../../styles/configs/colors'
 

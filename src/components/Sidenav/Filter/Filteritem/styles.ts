@@ -1,7 +1,7 @@
-// External
+// Styled-components
 import styled, { keyframes } from 'styled-components'
 
-// Internal
+// Styles global configs
 import colors from '../../../../styles/configs/colors'
 
 const pulseClick = keyframes`
