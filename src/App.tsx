@@ -1,16 +1,24 @@
-// Externs
+// React
 import React from 'react'
-import { Provider } from 'react-redux'
 
-// Interns
-import * as S from './styles/App'
+// Redux
+import { Provider } from 'react-redux'
+import store from './redux/configureStore'
+
+// React Router Dom
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+// Styles
 import Sidenav from './components/Sidenav'
-import Tasks from './pages/Tasks'
+
+// Components
+import * as S from './styles/App'
 import AddIcon from './components/AddIcon'
 import Header from './components/Header'
-import AddTask from './pages/Register'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import store from './redux/configureStore'
+
+// Pages
+import Register from './pages/Register'
+import Tasks from './pages/Tasks'
 
 function App() {
   return (
@@ -22,7 +30,7 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<Tasks />} />
-              <Route path="/adicionar" element={<AddTask />} />
+              <Route path="/adicionar" element={<Register />} />
             </Routes>
           </S.Content>
           <AddIcon />
