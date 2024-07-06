@@ -8,6 +8,10 @@ export const Wrapper = styled.aside`
   height: 100vh;
   background-color: ${colors.whiteGray};
   padding: 16px;
+
+  @media only screen and (max-width: 700px) {
+    height: auto;
+  }
 `
 export const Back = styled.a`
   background-color: ${colors.darkBlue};

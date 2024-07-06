@@ -11,6 +11,10 @@ export const Container = styled.div`
   font-family: ${fonts.roboto};
   font-size: 16px;
   font-weight: 400;
+
+  @media only screen and (max-width: 700px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const Content = styled.div`
